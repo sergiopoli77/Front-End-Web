@@ -1,10 +1,16 @@
 import Hello from "./Components/Hello";
 import World from "./Components/World";
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import axios from "axios";
 
 const App = () => {
   //let hello = "Selamat Datang";
-  const [hello, setHello] = useState("Selamat Datang");
+  const [hello, setHello] = useState("Selamat Datang")
+  
+
+  useEffect (() => {
+    console.log('component did mount')
+  }, []);
 
   const handleClick = () => {
     // hello = "Welcome";
