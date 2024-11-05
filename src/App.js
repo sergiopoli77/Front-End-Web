@@ -6,10 +6,12 @@ import axios from "axios";
 const App = () => {
   //let hello = "Selamat Datang";
   const [hello, setHello] = useState("Selamat Datang")
-  
+  const [users, setUsers] = useState([]); 
 
   useEffect (() => {
-    console.log('component did mount')
+    axios
+    .get ("https://jsonplaceholder.typicode.com/users") 
+    .then ((res) => setUsers(res.data));
   }, []);
 
   const handleClick = () => {
@@ -18,6 +20,8 @@ const App = () => {
     console.log("hello");
   };
 
+
+  
   return (
     <>
       <h1>{hello}</h1>
@@ -25,6 +29,9 @@ const App = () => {
       <Hello text="Component Hello 1" number={100} />
       <Hello text="Component Hello 2" number={110} />
       <World />
+      {users.map((item) =>(
+        <h3>{item.name}</h3>
+      ))}
       <button onClick={handleClick}>Click Me</button>
     </>
   );
