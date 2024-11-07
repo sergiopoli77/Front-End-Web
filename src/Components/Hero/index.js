@@ -1,9 +1,7 @@
-const Header = () => {
-    return (
-    
+const Hero = () => {
+  return (
 
-    );
+  );
 };
-  
-  export default Header;
-  
+
+export default Hero;
